@@ -1,5 +1,5 @@
 package servis.chat.response
 
 class FormResponse (
-    val id:Int
+    val id:Long
 )

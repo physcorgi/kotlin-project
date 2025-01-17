@@ -1,6 +1,6 @@
 package servis.chat.dto
 data class User(
-    val id:Int,
+    val id:Long,
     val login: String,
     val password: String,
     var gender: Gender?=null,

@@ -17,11 +17,11 @@ class UserRepository(
         }
     }
     fun register(user:UserRegister,token:String): Int {
-        userRepository.add(User(id=userRepository.size,token=token , login = user.login, password = user.password ))
+        userRepository.add(User(id= userRepository.size.toLong(),token=token , login = user.login, password = user.password ))
         return userRepository.size-1
     }
     fun update(form: Form, token:String): Int {
-        var id = 100500
+        var id = -1
         userRepository.forEach{
                 user ->
             if (user.token == token) {
@@ -29,9 +29,12 @@ class UserRepository(
                 user.gender= changeGenderToUser(form.gender)
                 user.lastname = form.lastName
                 user.firstname = form.firstName
-                 id = user.id
+                 id = user.id.toInt()
         }
         }
         return id
+    }
+    fun findById(id: Long):User?{
+        return userRepository.find {it.id == id.toLong() }
     }
 }
