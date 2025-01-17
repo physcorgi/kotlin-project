@@ -6,9 +6,7 @@ data class Form(
     val lastName: String,
     val firstName: String
 ) {
-
     enum class Gender {
         Male, Female
     }
-
 }
